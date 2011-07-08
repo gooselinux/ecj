@@ -1,0 +1,44 @@
+### Eclipse Workspace Patch 1.0
+#P org.eclipse.jdt.core
+Index: compiler/org/eclipse/jdt/internal/compiler/impl/CompilerOptions.java
+===================================================================
+RCS file: /cvsroot/eclipse/org.eclipse.jdt.core/compiler/org/eclipse/jdt/internal/compiler/impl/CompilerOptions.java,v
+retrieving revision 1.203
+diff -u -r1.203 CompilerOptions.java
+--- compiler/org/eclipse/jdt/internal/compiler/impl/CompilerOptions.java	14 Apr 2008 19:41:33 -0000	1.203
++++ compiler/org/eclipse/jdt/internal/compiler/impl/CompilerOptions.java	15 Dec 2008 19:50:02 -0000
+@@ -253,9 +253,9 @@
+ 	// By default only lines and source attributes are generated.
+ 	public int produceDebugAttributes = ClassFileConstants.ATTR_SOURCE | ClassFileConstants.ATTR_LINES;
+ 
+-	public long complianceLevel = ClassFileConstants.JDK1_4; // by default be compliant with 1.4
+-	public long sourceLevel = ClassFileConstants.JDK1_3; //1.3 source behavior by default
+-	public long targetJDK = ClassFileConstants.JDK1_2; // default generates for JVM1.2
++	public long complianceLevel = ClassFileConstants.JDK1_5; // by default be compliant with 1.4
++	public long sourceLevel = ClassFileConstants.JDK1_5; //1.3 source behavior by default
++	public long targetJDK = ClassFileConstants.JDK1_5; // default generates for JVM1.2
+ 
+ 	// source encoding format
+ 	public String defaultEncoding = null; // will use the platform default encoding
+@@ -757,7 +757,7 @@
+ 			} else if (DISABLED.equals(optionValue)) {
+ 				this.reportUnusedParameterIncludeDocCommentReference = false;
+ 			}
+-		}		
++		}
+ 		if ((optionValue = optionsMap.get(OPTION_ReportSpecialParameterHidingField)) != null) {
+ 			if (ENABLED.equals(optionValue)) {
+ 				this.reportSpecialParameterHidingField = true;
+@@ -944,10 +944,10 @@
+ 		}
+ 		if ((optionValue = optionsMap.get(OPTION_ReportMissingJavadocComments)) != null) {
+ 			updateSeverity(MissingJavadocComments, optionValue);
+-		}		
++		}
+ 		if ((optionValue = optionsMap.get(OPTION_ReportMissingJavadocTagDescription)) != null) {
+ 			this.reportMissingJavadocTagDescription = (String) optionValue;
+-		}		
++		}
+ 		if ((optionValue = optionsMap.get(OPTION_ReportMissingJavadocCommentsVisibility)) != null) {
+ 			if (PUBLIC.equals(optionValue)) {
+ 				this.reportMissingJavadocCommentsVisibility = ClassFileConstants.AccPublic;
